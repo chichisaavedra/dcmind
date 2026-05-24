@@ -77,6 +77,7 @@ function Sculpture({ mouseX, mouseY }: { mouseX: any; mouseY: any }) {
 }
 
 export default function Login({ onLogin }: LoginProps) {
+  const basePath = import.meta.env.BASE_URL;
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -151,7 +152,7 @@ export default function Login({ onLogin }: LoginProps) {
 
       {/* ── FLOATING LOGO ── */}
       <motion.a
-        href="/"
+        href={basePath}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: customEase }}
@@ -285,7 +286,7 @@ export default function Login({ onLogin }: LoginProps) {
                     Gracias por tu interés en DocMind. Te enviaremos un correo a <strong className="text-zinc-200">{email}</strong> en cuanto haya un espacio disponible.
                   </p>
                   <motion.a
-                    href="/"
+                    href={basePath}
                     whileHover={{ scale: 1.05 }}
                     className="mt-8 text-xs font-bold text-zinc-500 hover:text-white transition-colors uppercase tracking-widest"
                   >
@@ -299,9 +300,9 @@ export default function Login({ onLogin }: LoginProps) {
           {/* Privacy note */}
           <p className="text-center text-[10px] text-zinc-700 font-medium mt-6">
             Al anotarte, aceptas nuestros{' '}
-            <a href="/terms" className="text-zinc-500 hover:text-zinc-300 transition-colors">Términos</a>
+            <a href={`${basePath}terms`} className="text-zinc-500 hover:text-zinc-300 transition-colors">Términos</a>
             {' '}y{' '}
-            <a href="/privacy" className="text-zinc-500 hover:text-zinc-300 transition-colors">Privacidad</a>.
+            <a href={`${basePath}privacy`} className="text-zinc-500 hover:text-zinc-300 transition-colors">Privacidad</a>.
           </p>
         </motion.div>
       </div>
